@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KMakiGuest.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Hälytä Kmäki!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Viesti" Margin="15,10,10,0" FontSize="Medium"/>
+        <Editor x:Name="eMessage" Placeholder="Kirjoita tähän terveiset" Margin="10,0,10,0" IsTextPredictionEnabled="False"/>
+        <Grid x:Name="ButtonGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+              BackgroundColor="LightGray" Margin="10,20,10,20" IsVisible="true">
+            <Button x:Name="btnBell" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                    Clicked="btnBell_Clicked" WidthRequest="300" HeightRequest="300" CornerRadius="200" 
+                    BorderColor="Black" BorderWidth="3" BackgroundColor="Red"/>
+        </Grid>
+        <Grid x:Name="ActiveAlertGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+              Margin="10,20,10,20" IsVisible="false">
+            <StackLayout>
+                <Label Text="Odotetaan vastausta..." Margin="5,10,10,0" FontSize="Medium"/>
+                <ActivityIndicator x:Name="aiPolling" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                   HeightRequest="200" WidthRequest="200"/>
+            </StackLayout>
+        </Grid>
+        <Grid x:Name="PollResultGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+              Margin="10,20,10,20" IsVisible="false">
+            <StackLayout>
+                <Label x:Name="lblPollResult" FontSize="36" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                <Button x:Name="btnContinue" Text="JATKA" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="80" Clicked="btnContinue_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
